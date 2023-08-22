@@ -16,14 +16,13 @@ def pls_sort_this(list):
                 list[i] = b
                 #print(list)
                 list[i+1] = a
-        # print(count)
-        print(list)
+                #print(list)
 
     return list
 
-unsorted_list = [10,9,8,7,6,5,4,3,2,1]
+unsorted_list = [ 64,4,2,9,0,5,6,3,8,65,1,7 ]
 
 my_sorted_list = pls_sort_this(unsorted_list)
-# print(my_sorted_list)
+print(my_sorted_list)
 
 

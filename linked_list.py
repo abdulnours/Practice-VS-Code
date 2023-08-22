@@ -14,6 +14,11 @@ class Node:
         # returns a string representation of the node
         return "<Node data: %s>" % self.data
     
+# python -i linked_list.py
+# N1 = Node(10)
+# N1
+# N2 = Node(20)
+
 class LinkedList:
     '''
     Singly linked list
@@ -28,8 +33,10 @@ class LinkedList:
         return self.head == None
     
     def size(self):
-        # Returns the number of nodes in the list 
-        # Takes O(n) time
+        '''
+        Returns the number of nodes in the list 
+        Takes O(n) time
+        '''
 
         current = self.head
         count = 0
@@ -41,19 +48,21 @@ class LinkedList:
         return count
     
     def add(self, data):
-        # adds a new node containing data at the head of the list
-        # constant time O(1)
-
+        '''
+        adds a new node containing data at the head of the list
+        constant time O(1)
+		'''
 
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
 
     def __repr__(self):
-        """
+        '''
         Return a string representation of the list.
         Takes O(n) time.
-        """
+        '''
+        
         nodes = []
         current = self.head
         while current:
@@ -75,4 +84,4 @@ class LinkedList:
             else:
                 current = current.next_node
         return None
-        
+    
