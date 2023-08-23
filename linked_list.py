@@ -74,7 +74,7 @@ class LinkedList:
 		'''
 
         new_head = Node(data)
-        new_head.next_node = self.head
+        new_head.next_node = self.head # type: ignore
         self.head = new_head
 
     # l = LinkedList()
@@ -154,13 +154,13 @@ class LinkedList:
             current = self.head
 
             while position > 1:
-                current = current.next_node
+                current = current.next_node # type: ignore
                 position -= 1
 
             before = current
-            after = current.next_node
+            after = current.next_node # type: ignore
 
-            before.next_node = new
+            before.next_node = new # type: ignore
             new.next_node = after
 
     def remove(self, key):
@@ -171,3 +171,40 @@ class LinkedList:
         '''
 
         current = self.head
+        previous = None
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head:
+                found = True
+                self.head = current.next_node
+
+            elif current.data == key:
+                found = True
+                previous.next_node = current.next_node # type: ignore
+
+            else:
+                previous = current
+                current = current.next_node
+
+        return current
+    
+    def remove_at_index(self, index):
+            
+        current = self.head
+        position = index
+
+        if index == 0:
+            self.head = current.next_node # type: ignore
+
+        elif index > 0:
+            
+            while position > 1:
+                current = current.next_node # type: ignore
+                position -= 1
+
+            before = current
+            at_index = current.next_node # type: ignore
+            after = at_index.next_node # type: ignore
+            before.next_node = after # type: ignore
+            
